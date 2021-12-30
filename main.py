@@ -16,12 +16,12 @@ my_posts = [{"title": "title of post 1", "content": "content of post 1", "id": 1
 
 def find_post(id):
     for p in my_posts:
-        if p["id"] == id:
+        if p['id'] == id:
             return p
 
 def find_index_post():
     for i, p in enumerate(my_posts):
-        if p[''] == id:
+        if p['id'] == id:
             return i
 
 
@@ -37,10 +37,10 @@ def get_posts():
 def create_posts(post: Post):
     post_dict = post.dict()
     post_dict['id'] = randrange(0, 10000000)
-    print(post)
-    print(post.dict())
+    # print(post)
+    # print(post.dict())
 
-    my_posts.append(post.dict())
+    my_posts.append(post.dict)
     return{"data": post_dict} 
 
 @app.get("/posts/{id}")
@@ -55,7 +55,7 @@ def get_post(id: int, response: Response):
     print(id)
     return{"post_detail": post}
 
-@app.delete("/posts/{id}")
+@app.delete("/posts/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(id: int):
     # deleting post
     # find index in the array that has required ID
