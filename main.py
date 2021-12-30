@@ -19,7 +19,7 @@ def find_post(id):
         if p['id'] == id:
             return p
 
-def find_index_post():
+def find_index_post(id):
     for i, p in enumerate(my_posts):
         if p['id'] == id:
             return i
