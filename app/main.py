@@ -29,8 +29,8 @@ while True:
         PASSWORD = os.environ.get("PASSWORD")
         print(USER)
 
-        #conn = psycopg2.connect(host = 'localhost', database='fastapi', user=USER, password=PASSWORD)
-        #cursor = conn.cursor()
+        conn = psycopg2.connect(host = 'localhost', database='fastapi', user=USER, password=PASSWORD)
+        cursor = conn.cursor()
         print("Database connection was successful!")
         break
     except Exception as error:
