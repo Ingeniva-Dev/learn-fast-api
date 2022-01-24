@@ -10,7 +10,11 @@ import time
 import os
 from dotenv import load_dotenv
 
-load_dotenv(".env")
+load_dotenv('.env')
+
+USER = os.environ.get("USER")
+PASSWORD = os.environ.get("PASSWORD")
+print(USER)
 
 
 app = FastAPI()
@@ -20,16 +24,12 @@ class Post(BaseModel):
     content: str
     published: bool = True
     # rating: Optional[int] = None
-
-
+ 
 while True:
 
     try:
-        USER = os.environ.get("USER")
-        PASSWORD = os.environ.get("PASSWORD")
-        print(USER)
 
-        conn = psycopg2.connect(host = 'localhost', database='fastapi', user=USER, password=PASSWORD)
+        conn = psycopg2.connect(host = 'localhost', database='fastapi', user='USER', password='PASSWORD')
         cursor = conn.cursor()
         print("Database connection was successful!")
         break
